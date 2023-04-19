@@ -1,12 +1,12 @@
 services:
 
-  laravel-docker:
-    container_name: laravel-docker
+  health-insurance:
+    container_name: health-insurance
     build: .
     volumes:
       - ./laravel-app:/var/www/html
     ports:
-      - 6000:80
+      - 9010:80
   
   mysql_db:
     image: mysql:latest
@@ -14,12 +14,12 @@ services:
       MYSQL_ROOT_PASSWORD: ngfz2rmj
       MYSQL_DATABASE: health-insurance
     ports:
-    - 6001:3306
+    - 9011:3306
   
   phpmyadmin:
     image: phpmyadmin:latest
     ports:
-      - 6002:80
+      - 9012:80
     environment:
       - PMA_ARBITRARY=1
 
@@ -28,4 +28,4 @@ services:
     environment:
       ADMINER_DEFAULT_SERVER: mysql_db
     ports:
-      - 6003:8080
+      - 9013:8080
